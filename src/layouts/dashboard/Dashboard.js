@@ -10,10 +10,6 @@ import {
 } from 'react-md'
 import { businesses } from '../../util/businessmocklist'
 
-const LikesToState = (likes) => {
-
-}
-
 class Dashboard extends Component {
   constructor(props, { authData }) {
     super(props)
@@ -35,7 +31,7 @@ class Dashboard extends Component {
   GetLikes() {
     const self = this
     const { global, web3 } = this.props
-    const { AuthContract, account } = global
+    const { AuthContract } = global
     AuthContract.GetLikes().then((likes)=>{
       let arr = []
       new Promise(function(resolve, reject) {
@@ -53,7 +49,7 @@ class Dashboard extends Component {
   GetBookmarks() {
     const self = this
     const { global, web3 } = this.props
-    const { AuthContract, account } = global
+    const { AuthContract } = global
     AuthContract.GetBookmarks().then((bookmarks)=>{
       let arr = []
       new Promise(function(resolve, reject) {
@@ -72,7 +68,7 @@ class Dashboard extends Component {
     console.log('handleAddBookmark')
     const self = this
     const { global } = this.props
-    const { AuthContract, account } = global
+    const { AuthContract } = global
     AuthContract.AddBookmark(business_id, un).then(()=>{
       self.GetBookmarks()
     })
@@ -94,7 +90,7 @@ class Dashboard extends Component {
   handleClaimBusiness(business_id) {
     console.log('handleClaimBusiness')
     const { global } = this.props
-    const { AuthContract, account } = global
+    const { AuthContract } = global
     AuthContract.ClaimBusiness(business_id)
   }
 

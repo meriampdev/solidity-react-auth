@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { loginUser } from '../loginbutton/LoginButtonActions'
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class SignUpForm extends Component {
       return alert('Please fill in your name.')
     }
 
-    const { global, LoginUser, web3 } = this.props
+    const { global, LoginUser } = this.props
     const { AuthContract, account } = global
     AuthContract.signup(this.state.name, { from: account }).then((res)=>{
       LoginUser(this.state.name)
@@ -31,7 +30,6 @@ class SignUpForm extends Component {
   }
 
   render() {
-    console.log('signup', this.props)
     return(
       <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
         <fieldset>

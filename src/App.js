@@ -7,7 +7,7 @@ import { HiddenOnlyAuth, VisibleOnlyAuth } from './util/wrappers.js'
 import LoginButtonContainer from './user/ui/loginbutton/LoginButtonContainer'
 import LogoutButtonContainer from './user/ui/logoutbutton/LogoutButtonContainer'
 
-import { GetAuthContractInstance } from './actions/global'
+// import { GetAuthContractInstance } from './actions/global'
 
 // Styles
 import './css/oswald.css'

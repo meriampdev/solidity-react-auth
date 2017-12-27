@@ -5,39 +5,68 @@ import {
   Button
 } from 'react-md'
 
+import Notifications from '../components/Notifications'
+
 class People extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      people: []
+      people: [],
+			friends: [],
+			FriendRequestCount: 0,
+			FriendRequestList: []
     }
 
     this.GetPeople = this.GetPeople.bind(this)
     this.GetFriendRequests = this.GetFriendRequests.bind(this)
+		this.GetFriends = this.GetFriends.bind(this)
   }
 
   componentDidMount() {
     this.GetPeople()
     this.GetFriendRequests()
+		this.GetFriends()
   }
+
+	GetFriends() {
+		const self = this
+    const { global, web3 } = this.props
+    const { AuthContract, account } = global
+		AuthContract.GetFriends().then((friends)=>{
+			let arr = [], count = 0;
+			console.log('friends', friends)
+      new Promise(function(resolve, reject){
+        friends.map((addr, i)=>{
+          AuthContract.GetName(addr).then((name)=>{
+            ++count;
+            if(addr !== account) {
+              arr.push({ name: web3.toUtf8(name), addr: addr })
+            }
+            if(count >= friends.length) {
+              resolve();
+            }
+          })
+        })
+      }).then(()=>{
+        self.setState({ friends: arr })
+      })
+		}).catch((err)=>{
+			console.log('GetFriends Err', err)
+		})
+	}
 
   GetPeople() {
     const self = this
     const { global, web3 } = this.props
     const { AuthContract, account } = global
-    console.log('GetPeople')
-    AuthContract.GetPeople.call().then((people)=>{
-      console.log('people', people)
+    AuthContract.GetPeople().then((people)=>{
       let arr = [], count = 0;
       new Promise(function(resolve, reject){
         people.map((addr, i)=>{
           AuthContract.GetName(addr).then((name)=>{
-            console.log('name', web3.toUtf8(name))
             ++count;
-            console.log(addr, account)
             if(addr !== account) {
-              console.log('if', count, people.length)
               arr.push({ name: web3.toUtf8(name), addr: addr })
             }
             if(count >= people.length) {
@@ -46,7 +75,6 @@ class People extends Component {
           })
         })
       }).then(()=>{
-        console.log('arr', arr)
         self.setState({ people: arr })
       })
     }).catch((err)=>{
@@ -55,41 +83,64 @@ class People extends Component {
   }
 
   GetFriendRequests() {
-    console.log('GetFriendRequests')
     const self = this
     const { global, web3 } = this.props
-    const { AuthContract, account } = global
-    AuthContract.GetFriendRequests.call().then((res)=>{
-      console.log('res', res)
+    const { AuthContract } = global
+		AuthContract.GetFriendRequestCount().then((count)=>{
+			self.setState({ FriendRequestCount: count.valueOf() })
+		})
+    AuthContract.GetFriendRequests().then((requests)=>{
+			let arr = [], count = 0;
+			new Promise(function(resolve, reject) {
+				requests.map((from)=>{
+					AuthContract.GetName(from).then((name)=>{
+						++count
+						arr.push({ name: web3.toUtf8(name), addr: from })
+						if(count >= requests.length) {
+              resolve();
+            }
+					})
+				})
+
+			}).then(()=>{
+				self.setState({ FriendRequestList: arr })
+			})
     }).catch((err)=>{
       console.log('GetFriendRequests Err:' ,err)
     })
   }
 
   AddFriend(addr) {
-    const self = this
+    // const self = this
     const { global, web3 } = this.props
-    const { AuthContract, account } = global
-    console.log('web3', web3  )
+    const { AuthContract } = global
     AuthContract.SendFriendRequest(web3.toChecksumAddress(addr)).then((res)=>{
-
     }).catch((err)=>{
       console.log('AddFriend Err:', err)
     })
   }
 
   render() {
-    const { people } = this.state
+    const { people, FriendRequestCount, FriendRequestList, friends } = this.state
+		console.log('friends', friends)
     return(
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1">
             <h1>People</h1>
+						<Notifications
+							FriendRequestCount={FriendRequestCount}
+							FriendRequestList={FriendRequestList}
+							GetFriendRequests={this.GetFriendRequests.bind(this)}
+						/>
           </div>
         </div>
         <div className='md-grid'>
           {
             people.map((details)=>{
+							let added_you = FriendRequestList.filter((fr)=>{ return fr.addr === details.addr })
+							console.log('added_you', added_you)
+							let a_friend = friends.filter(f=>f.addr === details.addr)
               return (<div key={details.addr} className='md-cell md-cell--3 md-cell--8-tablet'>
                 <div className="card hovercard">
                   <div className="cardheader">
@@ -107,7 +158,22 @@ class People extends Component {
                     }
                   </div>
                   <div className="bottom">
-                    <Button onClick={this.AddFriend.bind(this, details.address)} className="md-cell--right" icon>person_add</Button>
+										{
+											a_friend.length >= 1 ?
+												'Friend'
+											:
+												<Button
+													onClick={this.AddFriend.bind(this, details.addr)}
+													className="md-cell--right"
+													icon
+													tooltipLabel={ added_you.length >= 1 ? 'Accept Request' : 'Add Friend'}
+													tooltipPosition='top'
+													>
+														{
+															added_you.length >= 1 ? 'accessibility' : 'person_add'
+														}
+													</Button>
+										}
                   </div>
                 </div>
               </div>)

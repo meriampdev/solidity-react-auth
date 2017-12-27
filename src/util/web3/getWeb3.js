@@ -1,7 +1,6 @@
 import store from '../../store'
 import Web3 from 'web3'
 import AuthenticationContract from '../../../build/contracts/Authentication.json'
-import { browserHistory } from 'react-router'
 const contract = require('truffle-contract')
 
 export const WEB3_INITIALIZED = 'WEB3_INITIALIZED'
