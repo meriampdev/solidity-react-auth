@@ -23,15 +23,15 @@ class Notifications extends React.Component {
 
 	render() {
 		const { FriendRequestCount, FriendRequestList } = this.props
-		console.log('FriendRequestList', FriendRequestList)
+    let filter = FriendRequestList.filter(f=> f.name !== '')
 		return(
 			<ul className="nav navbar-nav">
 		    <li className="dropdown">
 		      <a href="#" className="dropdown-toggle" data-toggle="dropdown">Friend Requests <span className="badge pull-right"> {FriendRequestCount} </span></a>
 		      <ul className="dropdown-menu">
 						{
-							FriendRequestList.map((person)=>{
-								return (<li key={person.addr}>
+							filter.map((person, i)=>{
+								return (<li key={'fr'+i}>
 									<a>{person.name} sent you a friend request.
 										<Button className="md-cell--right" icon tooltipLabel='Accept'
 											onClick={this.handleAcceptRequest.bind(this, person.addr)}

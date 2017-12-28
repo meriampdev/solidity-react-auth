@@ -9,7 +9,7 @@ import {
   MediaOverlay,
 } from 'react-md'
 
-class Bookmarks extends Component {
+class Claims extends Component {
   constructor(props) {
     super(props)
 
@@ -17,18 +17,18 @@ class Bookmarks extends Component {
       bookmarks: []
     }
 
-    this.GetBookmarks = this.GetBookmarks.bind(this)
+    this.GetClaims = this.GetClaims.bind(this)
   }
 
   componentDidMount() {
-    this.GetBookmarks()
+    this.GetClaims()
   }
 
-  GetBookmarks() {
+  GetClaims() {
     const self = this
     const { global, web3 } = this.props
     const { AuthContract } = global
-    AuthContract.GetBookmarks().then((bookmarks)=>{
+    AuthContract.GetClaims().then((bookmarks)=>{
       return bookmarks.map((business)=>{
         let id = web3.toUtf8(business)
         return id
@@ -36,7 +36,7 @@ class Bookmarks extends Component {
     }).then((list)=>{
       self.setState({ bookmarks: list })
     }).catch((err)=>{
-      console.log('GetBookmarks Err: ', err)
+      console.log('GetClaims Err: ', err)
     })
   }
 
@@ -47,7 +47,7 @@ class Bookmarks extends Component {
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1">
-            <h1>Bookmarks</h1>
+            <h1>Claims</h1>
           </div>
         </div>
         <div className='md-grid'>
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Bookmarks)
+)(Claims)

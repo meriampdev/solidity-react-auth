@@ -2,6 +2,7 @@
 // var Killable = artifacts.require("./zeppelin/lifecycle/Killable.sol");
 var Authentication = artifacts.require("./Authentication.sol");
 var Notification = artifacts.require("./Notification.sol");
+var BusinessStats = artifacts.require("./BusinessStats.sol");
 
 module.exports = function(deployer) {
   // deployer.deploy(Ownable);
@@ -10,4 +11,5 @@ module.exports = function(deployer) {
   // deployer.link(Killable, Authentication);
   deployer.deploy(Authentication);
   deployer.deploy(Notification);
+  deployer.deploy(BusinessStats);
 };

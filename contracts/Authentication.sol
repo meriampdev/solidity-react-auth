@@ -2,9 +2,9 @@ pragma solidity ^0.4.2;
 
 /* import './zeppelin/lifecycle/Killable.sol'; */
 import './Notification.sol';
-
+import './Business.sol';
 /* contract Authentication is Killable { */
-contract Authentication is Notification {
+contract Authentication is Notification, Business {
   struct User {
     bytes32 name;
     bytes32[] bookmarks;
@@ -75,12 +75,14 @@ contract Authentication is Notification {
     if (un == true) {
       for(uint i=0; i<users[msg.sender].bookmarks.length-1; i++) {
         if(users[msg.sender].bookmarks[i] == business_id) {
+          DecrementBookmarkCount(business_id);
           delete users[msg.sender].bookmarks[i];
           return true;
         }
       }
     }
 
+    IncrementBookmarkCount(business_id);
     users[msg.sender].bookmarks.push(business_id);
     return true;
   }
@@ -94,12 +96,14 @@ contract Authentication is Notification {
     if (un == true) {
       for(uint i=0; i<users[msg.sender].likes.length-1; i++) {
         if(users[msg.sender].likes[i] == business_id) {
+          DecrementLikeCount(business_id);
           delete users[msg.sender].likes[i];
           return true;
         }
       }
     }
 
+    IncrementLikeCount(business_id);
     users[msg.sender].likes.push(business_id);
     return true;
   }

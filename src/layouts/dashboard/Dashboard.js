@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
-  Button,
+  Button, Badge,
   Card,
   CardTitle,
   CardText,
@@ -16,16 +16,19 @@ class Dashboard extends Component {
     authData = this.props
 
     this.state = {
-      likes: [], bookmarks: []
+      likes: [], bookmarks: [], claims: [],
+      businesslikes: {}
     }
 
     this.GetLikes = this.GetLikes.bind(this)
     this.GetBookmarks = this.GetBookmarks.bind(this)
+    this.GetLikeCount = this.GetLikeCount.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.GetLikes()
     this.GetBookmarks()
+    this.GetLikeCount()
   }
 
   GetLikes() {
@@ -33,16 +36,33 @@ class Dashboard extends Component {
     const { global, web3 } = this.props
     const { AuthContract } = global
     AuthContract.GetLikes().then((likes)=>{
-      let arr = []
-      new Promise(function(resolve, reject) {
-        likes.map((bizID)=>{
-          let id =  web3.toUtf8(bizID)
-          arr.push(id)
-        })
-        resolve()
-      }).then(()=>{
-        self.setState({ likes: arr })
+      let arr = likes.map((bizID)=>{
+        let id =  web3.toUtf8(bizID)
+        return id
       })
+      self.setState({ likes: arr })
+    })
+  }
+
+  GetLikeCount() {
+    const self = this
+    const { global } = this.props
+    const { AuthContract } = global
+    let businesslikes = {}
+    let index = 0
+    new Promise(function(resolve, reject) {
+      businesses.map((business, i)=>{
+        AuthContract.GetLikeCount(business.business_id).then((count)=>{
+          index++;
+          businesslikes[business.business_id] = count.valueOf()
+          if(index >= businesses.length) {
+            resolve()
+          }
+        })
+        // return business;
+      })
+    }).then(()=>{
+      self.setState({ businesslikes })
     })
   }
 
@@ -51,21 +71,28 @@ class Dashboard extends Component {
     const { global, web3 } = this.props
     const { AuthContract } = global
     AuthContract.GetBookmarks().then((bookmarks)=>{
-      let arr = []
-      new Promise(function(resolve, reject) {
-        bookmarks.map((bizID)=>{
-          let id =  web3.toUtf8(bizID)
-          arr.push(id)
-        })
-        resolve()
-      }).then(()=>{
-        self.setState({ bookmarks: arr })
+      let arr = bookmarks.map((bizID)=>{
+        let id =  web3.toUtf8(bizID)
+        return id
       })
+      self.setState({ bookmarks: arr })
+    })
+  }
+
+  GetClaims() {
+    const self = this
+    const { global, web3 } = this.props
+    const { AuthContract } = global
+    AuthContract.GetClaims().then((claims)=>{
+      let arr = claims.map((bizID)=>{
+        let id =  web3.toUtf8(bizID)
+        return id
+      })
+      self.setState({ claims: arr })
     })
   }
 
   handleAddBookmark(business_id, un) {
-    console.log('handleAddBookmark')
     const self = this
     const { global } = this.props
     const { AuthContract } = global
@@ -75,12 +102,18 @@ class Dashboard extends Component {
   }
 
   handleAddLike(business_id, un) {
-    console.log('handleAddLike')
     const self = this
     const { global } = this.props
-    const { AuthContract, account } = global
-    console.log('account', account)
+    const { AuthContract } = global
+    let { businesslikes } = this.state
     AuthContract.AddLikes(business_id, un).then((res)=>{
+      if(un) {
+        businesslikes[business_id]--
+      } else {
+        businesslikes[business_id]++
+      }
+
+      self.setState({ businesslikes })
       self.GetLikes()
     }).catch((err)=>{
       console.log('Error":', err)
@@ -88,15 +121,13 @@ class Dashboard extends Component {
   }
 
   handleClaimBusiness(business_id) {
-    console.log('handleClaimBusiness')
     const { global } = this.props
     const { AuthContract } = global
     AuthContract.ClaimBusiness(business_id)
   }
 
   render() {
-    const { likes, bookmarks } = this.state
-    console.log('Dashboard', likes, bookmarks)
+    const { likes, bookmarks, businesslikes, claims } = this.state
     return(
       <main className="container">
         <div className="pure-g">
@@ -116,9 +147,16 @@ class Dashboard extends Component {
                     <Button onClick={this.handleAddBookmark.bind(this, business.business_id, bookmarks.includes(business.business_id))} className="md-cell--right" icon>{
                       bookmarks.includes(business.business_id) ? 'star' : 'star_border'
                     }</Button>
-                    <Button onClick={this.handleAddLike.bind(this, business.business_id, likes.includes(business.business_id))} className="md-cell--right" icon>{
-                      likes.includes(business.business_id) ? 'thumbs_up_down': 'thumb_up'
-                    }</Button>
+                    <Badge
+                      badgeContent={Object.keys(businesslikes).length > 0 ? businesslikes[business.business_id] : '0'}
+                      primary badgeId="notifications-like"
+                    >
+                      <Button onClick={this.handleAddLike.bind(this, business.business_id, likes.includes(business.business_id))} className="md-cell--right" icon>
+                        {
+                          likes.includes(business.business_id) ? 'thumbs_up_down': 'thumb_up'
+                        }
+                      </Button>
+                    </Badge>
                     <Button onClick={this.handleClaimBusiness.bind(this, business.business_id)} className="md-cell--right" icon>business</Button>
                   </CardTitle>
                 </MediaOverlay>

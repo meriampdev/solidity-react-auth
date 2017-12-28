@@ -13,6 +13,7 @@ import Dashboard from './layouts/dashboard/Dashboard'
 import SignUp from './user/layouts/signup/SignUp'
 import Profile from './user/layouts/profile/Profile'
 import Bookmarks from './containers/Bookmarks'
+import Claims from './containers/Claims'
 import People from './containers/People'
 
 // Redux Store
@@ -38,6 +39,7 @@ ReactDOM.render((
           <IndexRoute component={Home} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="bookmarks" component={UserIsAuthenticated(Bookmarks)} />
+          <Route path="claims" component={UserIsAuthenticated(Claims)} />
           <Route path="people" component={UserIsAuthenticated(People)} />
           <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />

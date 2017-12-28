@@ -34,19 +34,20 @@ class People extends Component {
     const { global, web3 } = this.props
     const { AuthContract, account } = global
 		AuthContract.GetFriends().then((friends)=>{
-			let arr = [], count = 0;
-			console.log('friends', friends)
+      console.log('frieds', friends)
+			let arr = [], count = 1;
       new Promise(function(resolve, reject){
         friends.map((addr, i)=>{
           AuthContract.GetName(addr).then((name)=>{
-            ++count;
             if(addr !== account) {
               arr.push({ name: web3.toUtf8(name), addr: addr })
             }
-            if(count >= friends.length) {
+            if(count == friends.length) {
               resolve();
             }
+            count++;
           })
+          // return addr
         })
       }).then(()=>{
         self.setState({ friends: arr })
@@ -73,6 +74,7 @@ class People extends Component {
               resolve();
             }
           })
+          // return addr
         })
       }).then(()=>{
         self.setState({ people: arr })
@@ -100,6 +102,7 @@ class People extends Component {
               resolve();
             }
 					})
+          // return from
 				})
 
 			}).then(()=>{
@@ -122,7 +125,6 @@ class People extends Component {
 
   render() {
     const { people, FriendRequestCount, FriendRequestList, friends } = this.state
-		console.log('friends', friends)
     return(
       <main className="container">
         <div className="pure-g">
@@ -139,7 +141,6 @@ class People extends Component {
           {
             people.map((details)=>{
 							let added_you = FriendRequestList.filter((fr)=>{ return fr.addr === details.addr })
-							console.log('added_you', added_you)
 							let a_friend = friends.filter(f=>f.addr === details.addr)
               return (<div key={details.addr} className='md-cell md-cell--3 md-cell--8-tablet'>
                 <div className="card hovercard">
