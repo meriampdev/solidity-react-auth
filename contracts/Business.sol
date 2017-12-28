@@ -7,7 +7,7 @@ contract Business {
     uint bookmarkcount;
     bool claimed;
   }
-  mapping(bytes32 => Details) BusinessDetails; 
+  mapping(bytes32 => Details) BusinessDetails;
   bytes32[] claimedBusinesses;
 
   function AddtoClaimed(bytes32 bizID) public payable returns(bool) {
@@ -18,6 +18,10 @@ contract Business {
   function GetClaimed() public constant returns(bytes32[]) {
     return claimedBusinesses;
   }
+
+	function GetBusinessDetails(bytes32 bizID) public constant returns(uint, uint) {
+		return (BusinessDetails[bizID].likescount, BusinessDetails[bizID].bookmarkcount);
+	}
 
   function IncrementLikeCount(bytes32 bizID) public payable returns(bool) {
     BusinessDetails[bizID].likescount++;

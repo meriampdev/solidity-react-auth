@@ -16,19 +16,21 @@ class Dashboard extends Component {
     authData = this.props
 
     this.state = {
-      likes: [], bookmarks: [], claims: [],
+      likes: [], bookmarks: [], claimed: [],
       businesslikes: {}
     }
 
     this.GetLikes = this.GetLikes.bind(this)
     this.GetBookmarks = this.GetBookmarks.bind(this)
     this.GetLikeCount = this.GetLikeCount.bind(this)
+		this.GetClaimed = this.GetClaimed.bind(this)
   }
 
   componentDidMount() {
     this.GetLikes()
     this.GetBookmarks()
     this.GetLikeCount()
+		this.GetClaimed()
   }
 
   GetLikes() {
@@ -79,16 +81,16 @@ class Dashboard extends Component {
     })
   }
 
-  GetClaims() {
+  GetClaimed() {
     const self = this
     const { global, web3 } = this.props
     const { AuthContract } = global
-    AuthContract.GetClaims().then((claims)=>{
-      let arr = claims.map((bizID)=>{
+    AuthContract.GetClaimed().then((claimed)=>{
+      let arr = claimed.map((bizID)=>{
         let id =  web3.toUtf8(bizID)
         return id
       })
-      self.setState({ claims: arr })
+      self.setState({ claimed: arr })
     })
   }
 
@@ -127,37 +129,57 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { likes, bookmarks, businesslikes, claims } = this.state
+    const { likes, bookmarks, businesslikes, claimed } = this.state
     return(
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1">
-            <h1>Dashboard</h1>
-            <p><strong>Congratulations {this.props.authData.name}!</strong> If you're seeing this page, you've logged in with your own smart contract successfully.</p>
+            <h1>Businesses</h1>
           </div>
         </div>
         <div className="md-grid">
         {
           businesses.map((business)=>{
+						let liked = likes.includes(business.business_id)
+						let bookmarked = bookmarks.includes(business.business_id)
             return(<Card key={business.business_id} className="cards__example md-cell md-cell--3 md-cell--8-tablet">
               <Media>
                 <img src="http://lorempixel.com/400/200/" alt="Nature from lorempixel" />
                 <MediaOverlay>
                   <CardTitle title={business.business_name} subtitle={business.business_address}>
-                    <Button onClick={this.handleAddBookmark.bind(this, business.business_id, bookmarks.includes(business.business_id))} className="md-cell--right" icon>{
-                      bookmarks.includes(business.business_id) ? 'star' : 'star_border'
-                    }</Button>
+                    <Button
+											onClick={this.handleAddBookmark.bind(this, business.business_id, bookmarked)}
+											className="md-cell--right"
+											icon
+											tooltipLabel="Bookmark" tooltipPosition="top"
+										>
+											{
+                      	bookmarked ? 'star' : 'star_border'
+                    	}
+									</Button>
                     <Badge
                       badgeContent={Object.keys(businesslikes).length > 0 ? businesslikes[business.business_id] : '0'}
                       primary badgeId="notifications-like"
                     >
-                      <Button onClick={this.handleAddLike.bind(this, business.business_id, likes.includes(business.business_id))} className="md-cell--right" icon>
+                      <Button
+												onClick={this.handleAddLike.bind(this, business.business_id, liked)}
+												className="md-cell--right" icon
+												tooltipLabel={liked ? 'Unlike' : 'Like'} tooltipPosition="top"
+											>
                         {
-                          likes.includes(business.business_id) ? 'thumbs_up_down': 'thumb_up'
+                          liked ? 'thumbs_up_down': 'thumb_up'
                         }
                       </Button>
                     </Badge>
-                    <Button onClick={this.handleClaimBusiness.bind(this, business.business_id)} className="md-cell--right" icon>business</Button>
+										{
+											!claimed.includes(business.business_id) ?
+												<Button
+													onClick={this.handleClaimBusiness.bind(this, business.business_id)}
+													className="md-cell--right" icon
+													tooltipLabel={'Claim'} tooltipPosition="top"
+												>business</Button>
+											: null
+										}
                   </CardTitle>
                 </MediaOverlay>
               </Media>

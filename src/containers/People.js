@@ -123,6 +123,18 @@ class People extends Component {
     })
   }
 
+	handleAcceptRequest(useraddr) {
+		const self = this
+    const { global, web3 } = this.props
+    const { AuthContract } = global
+		AuthContract.AcceptFriendRequest(web3.toChecksumAddress(useraddr)).then(()=>{
+			self.GetFriends()
+			self.GetFriendRequests()
+		}).catch((err)=>{
+			console.log('AcceptFriendRequest Err:', err)
+		})
+	}
+
   render() {
     const { people, FriendRequestCount, FriendRequestList, friends } = this.state
     return(
@@ -134,6 +146,7 @@ class People extends Component {
 							FriendRequestCount={FriendRequestCount}
 							FriendRequestList={FriendRequestList}
 							GetFriendRequests={this.GetFriendRequests.bind(this)}
+							GetFriends={this.GetFriends.bind(this)}
 						/>
           </div>
         </div>
@@ -164,7 +177,12 @@ class People extends Component {
 												'Friend'
 											:
 												<Button
-													onClick={this.AddFriend.bind(this, details.addr)}
+													onClick={
+														added_you.length >= 1 ?
+															this.handleAcceptRequest.bind(this, details.addr)
+														:
+															this.AddFriend.bind(this, details.addr)
+													}
 													className="md-cell--right"
 													icon
 													tooltipLabel={ added_you.length >= 1 ? 'Accept Request' : 'Add Friend'}

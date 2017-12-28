@@ -116,18 +116,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6103108061001e6000396000f300606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461007d57806351afc4ae146100b85780635bd9ca5a146100ec5780636eca44411461012057806391686c6514610154578063916da61a14610188575b600080fd5b341561008857600080fd5b6100a26004808035600019169060200190919050506101c3565b6040518082815260200191505060405180910390f35b6100d26004808035600019169060200190919050506101e7565b604051808215151515815260200191505060405180910390f35b61010660048080356000191690602001909190505061021d565b604051808215151515815260200191505060405180910390f35b61013a600480803560001916906020019091905050610253565b604051808215151515815260200191505060405180910390f35b61016e600480803560001916906020019091905050610288565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101ad6004808035600019169060200190919050506102bf565b6040518082815260200191505060405180910390f35b60008060008360001916600019168152602001908152602001600020549050919050565b60006001600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b6000600160008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b60006001600083600019166000191681526020019081526020016000205490509190505600a165627a7a723058208ffa6226fa6fa9a669db2a43641d97e4901b31b471e900ac7d22fa81ce9f7bcc0029",
-  "deployedBytecode": "0x606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461007d57806351afc4ae146100b85780635bd9ca5a146100ec5780636eca44411461012057806391686c6514610154578063916da61a14610188575b600080fd5b341561008857600080fd5b6100a26004808035600019169060200190919050506101c3565b6040518082815260200191505060405180910390f35b6100d26004808035600019169060200190919050506101e7565b604051808215151515815260200191505060405180910390f35b61010660048080356000191690602001909190505061021d565b604051808215151515815260200191505060405180910390f35b61013a600480803560001916906020019091905050610253565b604051808215151515815260200191505060405180910390f35b61016e600480803560001916906020019091905050610288565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101ad6004808035600019169060200190919050506102bf565b6040518082815260200191505060405180910390f35b60008060008360001916600019168152602001908152602001600020549050919050565b60006001600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b6000600160008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b60006001600083600019166000191681526020019081526020016000205490509190505600a165627a7a723058208ffa6226fa6fa9a669db2a43641d97e4901b31b471e900ac7d22fa81ce9f7bcc0029",
-  "sourceMap": "27:867:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "27:867:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;397:104;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;507:130;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;269:122;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;141;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;643:130;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;779:112;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;397:104;458:4;478:10;:17;489:5;478:17;;;;;;;;;;;;;;;;;;471:24;;397:104;;;:::o;507:130::-;577:4;590:14;:21;605:5;590:21;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;;627:4;620:11;;507:130;;;:::o;269:122::-;335:4;348:10;:17;359:5;348:17;;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;;;381:4;374:11;;269:122;;;:::o;141:::-;207:4;220:10;:17;231:5;220:17;;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;;253:4;246:11;;141:122;;;:::o;643:130::-;713:4;726:14;:21;741:5;726:21;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;;;763:4;756:11;;643:130;;;:::o;779:112::-;844:4;864:14;:21;879:5;864:21;;;;;;;;;;;;;;;;;;857:28;;779:112;;;:::o",
-  "source": "pragma solidity ^0.4.2;\r\n\r\ncontract BusinessStats {\r\n  mapping(bytes32 => uint) LikesCount;\r\n  mapping(bytes32 => uint) BookmarksCount;\r\n\r\n  function IncrementLikeCount(bytes32 bizID) public payable returns(bool) {\r\n    LikesCount[bizID]++;\r\n    return true;\r\n  }\r\n\r\n  function DecrementLikeCount(bytes32 bizID) public payable returns(bool) {\r\n    LikesCount[bizID]--;\r\n    return true;\r\n  }\r\n\r\n  function GetLikeCount(bytes32 bizID) public constant returns(uint) {\r\n    return LikesCount[bizID];\r\n  }\r\n\r\n  function IncrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\r\n    BookmarksCount[bizID]++;\r\n    return true;\r\n  }\r\n\r\n  function DecrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\r\n    BookmarksCount[bizID]--;\r\n    return true;\r\n  }\r\n\r\n  function GetBookmarkCount(bytes32 bizID) public constant returns(uint) {\r\n    return BookmarksCount[bizID];\r\n  }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\mpales\\Documents\\github\\solidity-react-auth\\contracts\\BusinessStats.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b6103108061001e6000396000f300606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461007d57806351afc4ae146100b85780635bd9ca5a146100ec5780636eca44411461012057806391686c6514610154578063916da61a14610188575b600080fd5b341561008857600080fd5b6100a26004808035600019169060200190919050506101c3565b6040518082815260200191505060405180910390f35b6100d26004808035600019169060200190919050506101e7565b604051808215151515815260200191505060405180910390f35b61010660048080356000191690602001909190505061021d565b604051808215151515815260200191505060405180910390f35b61013a600480803560001916906020019091905050610253565b604051808215151515815260200191505060405180910390f35b61016e600480803560001916906020019091905050610288565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101ad6004808035600019169060200190919050506102bf565b6040518082815260200191505060405180910390f35b60008060008360001916600019168152602001908152602001600020549050919050565b60006001600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b6000600160008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b60006001600083600019166000191681526020019081526020016000205490509190505600a165627a7a72305820d45d65c68b409830296a80e3ef7b0e69ef79ea73c0c5312441d6f4b9d63600c80029",
+  "deployedBytecode": "0x606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461007d57806351afc4ae146100b85780635bd9ca5a146100ec5780636eca44411461012057806391686c6514610154578063916da61a14610188575b600080fd5b341561008857600080fd5b6100a26004808035600019169060200190919050506101c3565b6040518082815260200191505060405180910390f35b6100d26004808035600019169060200190919050506101e7565b604051808215151515815260200191505060405180910390f35b61010660048080356000191690602001909190505061021d565b604051808215151515815260200191505060405180910390f35b61013a600480803560001916906020019091905050610253565b604051808215151515815260200191505060405180910390f35b61016e600480803560001916906020019091905050610288565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101ad6004808035600019169060200190919050506102bf565b6040518082815260200191505060405180910390f35b60008060008360001916600019168152602001908152602001600020549050919050565b60006001600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206000815480929190600101919050555060019050919050565b6000600160008360001916600019168152602001908152602001600020600081548092919060019003919050555060019050919050565b60006001600083600019166000191681526020019081526020016000205490509190505600a165627a7a72305820d45d65c68b409830296a80e3ef7b0e69ef79ea73c0c5312441d6f4b9d63600c80029",
+  "sourceMap": "25:836:2:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:836:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;381:102;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;487:127;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;258:119;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;135;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;618:127;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;749:110;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;381:102;442:4;461:10;:17;472:5;461:17;;;;;;;;;;;;;;;;;;454:24;;381:102;;;:::o;487:127::-;557:4;569:14;:21;584:5;569:21;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;;605:4;598:11;;487:127;;;:::o;258:119::-;324:4;336:10;:17;347:5;336:17;;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;;;368:4;361:11;;258:119;;;:::o;135:::-;201:4;213:10;:17;224:5;213:17;;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;;245:4;238:11;;135:119;;;:::o;618:127::-;688:4;700:14;:21;715:5;700:21;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;;;736:4;729:11;;618:127;;;:::o;749:110::-;814:4;833:14;:21;848:5;833:21;;;;;;;;;;;;;;;;;;826:28;;749:110;;;:::o",
+  "source": "pragma solidity ^0.4.2;\n\ncontract BusinessStats {\n  mapping(bytes32 => uint) LikesCount;\n  mapping(bytes32 => uint) BookmarksCount;\n\n  function IncrementLikeCount(bytes32 bizID) public payable returns(bool) {\n    LikesCount[bizID]++;\n    return true;\n  }\n\n  function DecrementLikeCount(bytes32 bizID) public payable returns(bool) {\n    LikesCount[bizID]--;\n    return true;\n  }\n\n  function GetLikeCount(bytes32 bizID) public constant returns(uint) {\n    return LikesCount[bizID];\n  }\n\n  function IncrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\n    BookmarksCount[bizID]++;\n    return true;\n  }\n\n  function DecrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\n    BookmarksCount[bizID]--;\n    return true;\n  }\n\n  function GetBookmarkCount(bytes32 bizID) public constant returns(uint) {\n    return BookmarksCount[bizID];\n  }\n}\n",
+  "sourcePath": "/home/chael/Documents/ethereum/solidity-react-auth/contracts/BusinessStats.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/C/Users/mpales/Documents/github/solidity-react-auth/contracts/BusinessStats.sol",
+      "absolutePath": "/home/chael/Documents/ethereum/solidity-react-auth/contracts/BusinessStats.sol",
       "exportedSymbols": {
         "BusinessStats": [
-          488
+          646
         ]
       }
     },
@@ -141,9 +141,9 @@
             ".2"
           ]
         },
-        "id": 395,
+        "id": 553,
         "name": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:2"
       },
       {
         "attributes": {
@@ -157,17 +157,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            488
+            646
           ],
           "name": "BusinessStats",
-          "scope": 489
+          "scope": 647
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "LikesCount",
-              "scope": 488,
+              "scope": 646,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(bytes32 => uint256)",
@@ -185,34 +185,34 @@
                       "name": "bytes32",
                       "type": "bytes32"
                     },
-                    "id": 396,
+                    "id": 554,
                     "name": "ElementaryTypeName",
-                    "src": "63:7:1"
+                    "src": "60:7:2"
                   },
                   {
                     "attributes": {
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 397,
+                    "id": 555,
                     "name": "ElementaryTypeName",
-                    "src": "74:4:1"
+                    "src": "71:4:2"
                   }
                 ],
-                "id": 398,
+                "id": 556,
                 "name": "Mapping",
-                "src": "55:24:1"
+                "src": "52:24:2"
               }
             ],
-            "id": 399,
+            "id": 557,
             "name": "VariableDeclaration",
-            "src": "55:35:1"
+            "src": "52:35:2"
           },
           {
             "attributes": {
               "constant": false,
               "name": "BookmarksCount",
-              "scope": 488,
+              "scope": 646,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(bytes32 => uint256)",
@@ -230,28 +230,28 @@
                       "name": "bytes32",
                       "type": "bytes32"
                     },
-                    "id": 400,
+                    "id": 558,
                     "name": "ElementaryTypeName",
-                    "src": "103:7:1"
+                    "src": "99:7:2"
                   },
                   {
                     "attributes": {
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 401,
+                    "id": 559,
                     "name": "ElementaryTypeName",
-                    "src": "114:4:1"
+                    "src": "110:4:2"
                   }
                 ],
-                "id": 402,
+                "id": 560,
                 "name": "Mapping",
-                "src": "95:24:1"
+                "src": "91:24:2"
               }
             ],
-            "id": 403,
+            "id": 561,
             "name": "VariableDeclaration",
-            "src": "95:39:1"
+            "src": "91:39:2"
           },
           {
             "attributes": {
@@ -263,7 +263,7 @@
               ],
               "name": "IncrementLikeCount",
               "payable": true,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -275,7 +275,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 418,
+                      "scope": 576,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -288,19 +288,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 404,
+                        "id": 562,
                         "name": "ElementaryTypeName",
-                        "src": "169:7:1"
+                        "src": "163:7:2"
                       }
                     ],
-                    "id": 405,
+                    "id": 563,
                     "name": "VariableDeclaration",
-                    "src": "169:13:1"
+                    "src": "163:13:2"
                   }
                 ],
-                "id": 406,
+                "id": 564,
                 "name": "ParameterList",
-                "src": "168:15:1"
+                "src": "162:15:2"
               },
               {
                 "children": [
@@ -308,7 +308,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 418,
+                      "scope": 576,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -321,19 +321,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 407,
+                        "id": 565,
                         "name": "ElementaryTypeName",
-                        "src": "207:4:1"
+                        "src": "201:4:2"
                       }
                     ],
-                    "id": 408,
+                    "id": 566,
                     "name": "VariableDeclaration",
-                    "src": "207:4:1"
+                    "src": "201:4:2"
                   }
                 ],
-                "id": 409,
+                "id": 567,
                 "name": "ParameterList",
-                "src": "206:6:1"
+                "src": "200:6:2"
               },
               {
                 "children": [
@@ -367,13 +367,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 399,
+                                  "referencedDeclaration": 557,
                                   "type": "mapping(bytes32 => uint256)",
                                   "value": "LikesCount"
                                 },
-                                "id": 410,
+                                "id": 568,
                                 "name": "Identifier",
-                                "src": "220:10:1"
+                                "src": "213:10:2"
                               },
                               {
                                 "attributes": {
@@ -381,32 +381,32 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 405,
+                                  "referencedDeclaration": 563,
                                   "type": "bytes32",
                                   "value": "bizID"
                                 },
-                                "id": 411,
+                                "id": 569,
                                 "name": "Identifier",
-                                "src": "231:5:1"
+                                "src": "224:5:2"
                               }
                             ],
-                            "id": 412,
+                            "id": 570,
                             "name": "IndexAccess",
-                            "src": "220:17:1"
+                            "src": "213:17:2"
                           }
                         ],
-                        "id": 413,
+                        "id": 571,
                         "name": "UnaryOperation",
-                        "src": "220:19:1"
+                        "src": "213:19:2"
                       }
                     ],
-                    "id": 414,
+                    "id": 572,
                     "name": "ExpressionStatement",
-                    "src": "220:19:1"
+                    "src": "213:19:2"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 409
+                      "functionReturnParameters": 567
                     },
                     "children": [
                       {
@@ -422,24 +422,24 @@
                           "type": "bool",
                           "value": "true"
                         },
-                        "id": 415,
+                        "id": 573,
                         "name": "Literal",
-                        "src": "253:4:1"
+                        "src": "245:4:2"
                       }
                     ],
-                    "id": 416,
+                    "id": 574,
                     "name": "Return",
-                    "src": "246:11:1"
+                    "src": "238:11:2"
                   }
                 ],
-                "id": 417,
+                "id": 575,
                 "name": "Block",
-                "src": "213:50:1"
+                "src": "207:47:2"
               }
             ],
-            "id": 418,
+            "id": 576,
             "name": "FunctionDefinition",
-            "src": "141:122:1"
+            "src": "135:119:2"
           },
           {
             "attributes": {
@@ -451,7 +451,7 @@
               ],
               "name": "DecrementLikeCount",
               "payable": true,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -463,7 +463,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 433,
+                      "scope": 591,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -476,19 +476,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 419,
+                        "id": 577,
                         "name": "ElementaryTypeName",
-                        "src": "297:7:1"
+                        "src": "286:7:2"
                       }
                     ],
-                    "id": 420,
+                    "id": 578,
                     "name": "VariableDeclaration",
-                    "src": "297:13:1"
+                    "src": "286:13:2"
                   }
                 ],
-                "id": 421,
+                "id": 579,
                 "name": "ParameterList",
-                "src": "296:15:1"
+                "src": "285:15:2"
               },
               {
                 "children": [
@@ -496,7 +496,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 433,
+                      "scope": 591,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -509,19 +509,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 422,
+                        "id": 580,
                         "name": "ElementaryTypeName",
-                        "src": "335:4:1"
+                        "src": "324:4:2"
                       }
                     ],
-                    "id": 423,
+                    "id": 581,
                     "name": "VariableDeclaration",
-                    "src": "335:4:1"
+                    "src": "324:4:2"
                   }
                 ],
-                "id": 424,
+                "id": 582,
                 "name": "ParameterList",
-                "src": "334:6:1"
+                "src": "323:6:2"
               },
               {
                 "children": [
@@ -555,13 +555,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 399,
+                                  "referencedDeclaration": 557,
                                   "type": "mapping(bytes32 => uint256)",
                                   "value": "LikesCount"
                                 },
-                                "id": 425,
+                                "id": 583,
                                 "name": "Identifier",
-                                "src": "348:10:1"
+                                "src": "336:10:2"
                               },
                               {
                                 "attributes": {
@@ -569,32 +569,32 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 420,
+                                  "referencedDeclaration": 578,
                                   "type": "bytes32",
                                   "value": "bizID"
                                 },
-                                "id": 426,
+                                "id": 584,
                                 "name": "Identifier",
-                                "src": "359:5:1"
+                                "src": "347:5:2"
                               }
                             ],
-                            "id": 427,
+                            "id": 585,
                             "name": "IndexAccess",
-                            "src": "348:17:1"
+                            "src": "336:17:2"
                           }
                         ],
-                        "id": 428,
+                        "id": 586,
                         "name": "UnaryOperation",
-                        "src": "348:19:1"
+                        "src": "336:19:2"
                       }
                     ],
-                    "id": 429,
+                    "id": 587,
                     "name": "ExpressionStatement",
-                    "src": "348:19:1"
+                    "src": "336:19:2"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 424
+                      "functionReturnParameters": 582
                     },
                     "children": [
                       {
@@ -610,24 +610,24 @@
                           "type": "bool",
                           "value": "true"
                         },
-                        "id": 430,
+                        "id": 588,
                         "name": "Literal",
-                        "src": "381:4:1"
+                        "src": "368:4:2"
                       }
                     ],
-                    "id": 431,
+                    "id": 589,
                     "name": "Return",
-                    "src": "374:11:1"
+                    "src": "361:11:2"
                   }
                 ],
-                "id": 432,
+                "id": 590,
                 "name": "Block",
-                "src": "341:50:1"
+                "src": "330:47:2"
               }
             ],
-            "id": 433,
+            "id": 591,
             "name": "FunctionDefinition",
-            "src": "269:122:1"
+            "src": "258:119:2"
           },
           {
             "attributes": {
@@ -639,7 +639,7 @@
               ],
               "name": "GetLikeCount",
               "payable": false,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -651,7 +651,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 445,
+                      "scope": 603,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -664,19 +664,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 434,
+                        "id": 592,
                         "name": "ElementaryTypeName",
-                        "src": "419:7:1"
+                        "src": "403:7:2"
                       }
                     ],
-                    "id": 435,
+                    "id": 593,
                     "name": "VariableDeclaration",
-                    "src": "419:13:1"
+                    "src": "403:13:2"
                   }
                 ],
-                "id": 436,
+                "id": 594,
                 "name": "ParameterList",
-                "src": "418:15:1"
+                "src": "402:15:2"
               },
               {
                 "children": [
@@ -684,7 +684,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 445,
+                      "scope": 603,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -697,25 +697,25 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 437,
+                        "id": 595,
                         "name": "ElementaryTypeName",
-                        "src": "458:4:1"
+                        "src": "442:4:2"
                       }
                     ],
-                    "id": 438,
+                    "id": 596,
                     "name": "VariableDeclaration",
-                    "src": "458:4:1"
+                    "src": "442:4:2"
                   }
                 ],
-                "id": 439,
+                "id": 597,
                 "name": "ParameterList",
-                "src": "457:6:1"
+                "src": "441:6:2"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 439
+                      "functionReturnParameters": 597
                     },
                     "children": [
                       {
@@ -734,13 +734,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 399,
+                              "referencedDeclaration": 557,
                               "type": "mapping(bytes32 => uint256)",
                               "value": "LikesCount"
                             },
-                            "id": 440,
+                            "id": 598,
                             "name": "Identifier",
-                            "src": "478:10:1"
+                            "src": "461:10:2"
                           },
                           {
                             "attributes": {
@@ -748,33 +748,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 435,
+                              "referencedDeclaration": 593,
                               "type": "bytes32",
                               "value": "bizID"
                             },
-                            "id": 441,
+                            "id": 599,
                             "name": "Identifier",
-                            "src": "489:5:1"
+                            "src": "472:5:2"
                           }
                         ],
-                        "id": 442,
+                        "id": 600,
                         "name": "IndexAccess",
-                        "src": "478:17:1"
+                        "src": "461:17:2"
                       }
                     ],
-                    "id": 443,
+                    "id": 601,
                     "name": "Return",
-                    "src": "471:24:1"
+                    "src": "454:24:2"
                   }
                 ],
-                "id": 444,
+                "id": 602,
                 "name": "Block",
-                "src": "464:37:1"
+                "src": "448:35:2"
               }
             ],
-            "id": 445,
+            "id": 603,
             "name": "FunctionDefinition",
-            "src": "397:104:1"
+            "src": "381:102:2"
           },
           {
             "attributes": {
@@ -786,7 +786,7 @@
               ],
               "name": "IncrementBookmarkCount",
               "payable": true,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -798,7 +798,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 460,
+                      "scope": 618,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -811,19 +811,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 446,
+                        "id": 604,
                         "name": "ElementaryTypeName",
-                        "src": "539:7:1"
+                        "src": "519:7:2"
                       }
                     ],
-                    "id": 447,
+                    "id": 605,
                     "name": "VariableDeclaration",
-                    "src": "539:13:1"
+                    "src": "519:13:2"
                   }
                 ],
-                "id": 448,
+                "id": 606,
                 "name": "ParameterList",
-                "src": "538:15:1"
+                "src": "518:15:2"
               },
               {
                 "children": [
@@ -831,7 +831,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 460,
+                      "scope": 618,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -844,19 +844,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 449,
+                        "id": 607,
                         "name": "ElementaryTypeName",
-                        "src": "577:4:1"
+                        "src": "557:4:2"
                       }
                     ],
-                    "id": 450,
+                    "id": 608,
                     "name": "VariableDeclaration",
-                    "src": "577:4:1"
+                    "src": "557:4:2"
                   }
                 ],
-                "id": 451,
+                "id": 609,
                 "name": "ParameterList",
-                "src": "576:6:1"
+                "src": "556:6:2"
               },
               {
                 "children": [
@@ -890,13 +890,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 403,
+                                  "referencedDeclaration": 561,
                                   "type": "mapping(bytes32 => uint256)",
                                   "value": "BookmarksCount"
                                 },
-                                "id": 452,
+                                "id": 610,
                                 "name": "Identifier",
-                                "src": "590:14:1"
+                                "src": "569:14:2"
                               },
                               {
                                 "attributes": {
@@ -904,32 +904,32 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 447,
+                                  "referencedDeclaration": 605,
                                   "type": "bytes32",
                                   "value": "bizID"
                                 },
-                                "id": 453,
+                                "id": 611,
                                 "name": "Identifier",
-                                "src": "605:5:1"
+                                "src": "584:5:2"
                               }
                             ],
-                            "id": 454,
+                            "id": 612,
                             "name": "IndexAccess",
-                            "src": "590:21:1"
+                            "src": "569:21:2"
                           }
                         ],
-                        "id": 455,
+                        "id": 613,
                         "name": "UnaryOperation",
-                        "src": "590:23:1"
+                        "src": "569:23:2"
                       }
                     ],
-                    "id": 456,
+                    "id": 614,
                     "name": "ExpressionStatement",
-                    "src": "590:23:1"
+                    "src": "569:23:2"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 451
+                      "functionReturnParameters": 609
                     },
                     "children": [
                       {
@@ -945,24 +945,24 @@
                           "type": "bool",
                           "value": "true"
                         },
-                        "id": 457,
+                        "id": 615,
                         "name": "Literal",
-                        "src": "627:4:1"
+                        "src": "605:4:2"
                       }
                     ],
-                    "id": 458,
+                    "id": 616,
                     "name": "Return",
-                    "src": "620:11:1"
+                    "src": "598:11:2"
                   }
                 ],
-                "id": 459,
+                "id": 617,
                 "name": "Block",
-                "src": "583:54:1"
+                "src": "563:51:2"
               }
             ],
-            "id": 460,
+            "id": 618,
             "name": "FunctionDefinition",
-            "src": "507:130:1"
+            "src": "487:127:2"
           },
           {
             "attributes": {
@@ -974,7 +974,7 @@
               ],
               "name": "DecrementBookmarkCount",
               "payable": true,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -986,7 +986,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 475,
+                      "scope": 633,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -999,19 +999,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 461,
+                        "id": 619,
                         "name": "ElementaryTypeName",
-                        "src": "675:7:1"
+                        "src": "650:7:2"
                       }
                     ],
-                    "id": 462,
+                    "id": 620,
                     "name": "VariableDeclaration",
-                    "src": "675:13:1"
+                    "src": "650:13:2"
                   }
                 ],
-                "id": 463,
+                "id": 621,
                 "name": "ParameterList",
-                "src": "674:15:1"
+                "src": "649:15:2"
               },
               {
                 "children": [
@@ -1019,7 +1019,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 475,
+                      "scope": 633,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1032,19 +1032,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 464,
+                        "id": 622,
                         "name": "ElementaryTypeName",
-                        "src": "713:4:1"
+                        "src": "688:4:2"
                       }
                     ],
-                    "id": 465,
+                    "id": 623,
                     "name": "VariableDeclaration",
-                    "src": "713:4:1"
+                    "src": "688:4:2"
                   }
                 ],
-                "id": 466,
+                "id": 624,
                 "name": "ParameterList",
-                "src": "712:6:1"
+                "src": "687:6:2"
               },
               {
                 "children": [
@@ -1078,13 +1078,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 403,
+                                  "referencedDeclaration": 561,
                                   "type": "mapping(bytes32 => uint256)",
                                   "value": "BookmarksCount"
                                 },
-                                "id": 467,
+                                "id": 625,
                                 "name": "Identifier",
-                                "src": "726:14:1"
+                                "src": "700:14:2"
                               },
                               {
                                 "attributes": {
@@ -1092,32 +1092,32 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 462,
+                                  "referencedDeclaration": 620,
                                   "type": "bytes32",
                                   "value": "bizID"
                                 },
-                                "id": 468,
+                                "id": 626,
                                 "name": "Identifier",
-                                "src": "741:5:1"
+                                "src": "715:5:2"
                               }
                             ],
-                            "id": 469,
+                            "id": 627,
                             "name": "IndexAccess",
-                            "src": "726:21:1"
+                            "src": "700:21:2"
                           }
                         ],
-                        "id": 470,
+                        "id": 628,
                         "name": "UnaryOperation",
-                        "src": "726:23:1"
+                        "src": "700:23:2"
                       }
                     ],
-                    "id": 471,
+                    "id": 629,
                     "name": "ExpressionStatement",
-                    "src": "726:23:1"
+                    "src": "700:23:2"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 466
+                      "functionReturnParameters": 624
                     },
                     "children": [
                       {
@@ -1133,24 +1133,24 @@
                           "type": "bool",
                           "value": "true"
                         },
-                        "id": 472,
+                        "id": 630,
                         "name": "Literal",
-                        "src": "763:4:1"
+                        "src": "736:4:2"
                       }
                     ],
-                    "id": 473,
+                    "id": 631,
                     "name": "Return",
-                    "src": "756:11:1"
+                    "src": "729:11:2"
                   }
                 ],
-                "id": 474,
+                "id": 632,
                 "name": "Block",
-                "src": "719:54:1"
+                "src": "694:51:2"
               }
             ],
-            "id": 475,
+            "id": 633,
             "name": "FunctionDefinition",
-            "src": "643:130:1"
+            "src": "618:127:2"
           },
           {
             "attributes": {
@@ -1162,7 +1162,7 @@
               ],
               "name": "GetBookmarkCount",
               "payable": false,
-              "scope": 488,
+              "scope": 646,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1174,7 +1174,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "bizID",
-                      "scope": 487,
+                      "scope": 645,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -1187,19 +1187,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 476,
+                        "id": 634,
                         "name": "ElementaryTypeName",
-                        "src": "805:7:1"
+                        "src": "775:7:2"
                       }
                     ],
-                    "id": 477,
+                    "id": 635,
                     "name": "VariableDeclaration",
-                    "src": "805:13:1"
+                    "src": "775:13:2"
                   }
                 ],
-                "id": 478,
+                "id": 636,
                 "name": "ParameterList",
-                "src": "804:15:1"
+                "src": "774:15:2"
               },
               {
                 "children": [
@@ -1207,7 +1207,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 487,
+                      "scope": 645,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1220,25 +1220,25 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 479,
+                        "id": 637,
                         "name": "ElementaryTypeName",
-                        "src": "844:4:1"
+                        "src": "814:4:2"
                       }
                     ],
-                    "id": 480,
+                    "id": 638,
                     "name": "VariableDeclaration",
-                    "src": "844:4:1"
+                    "src": "814:4:2"
                   }
                 ],
-                "id": 481,
+                "id": 639,
                 "name": "ParameterList",
-                "src": "843:6:1"
+                "src": "813:6:2"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 481
+                      "functionReturnParameters": 639
                     },
                     "children": [
                       {
@@ -1257,13 +1257,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 403,
+                              "referencedDeclaration": 561,
                               "type": "mapping(bytes32 => uint256)",
                               "value": "BookmarksCount"
                             },
-                            "id": 482,
+                            "id": 640,
                             "name": "Identifier",
-                            "src": "864:14:1"
+                            "src": "833:14:2"
                           },
                           {
                             "attributes": {
@@ -1271,60 +1271,55 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 477,
+                              "referencedDeclaration": 635,
                               "type": "bytes32",
                               "value": "bizID"
                             },
-                            "id": 483,
+                            "id": 641,
                             "name": "Identifier",
-                            "src": "879:5:1"
+                            "src": "848:5:2"
                           }
                         ],
-                        "id": 484,
+                        "id": 642,
                         "name": "IndexAccess",
-                        "src": "864:21:1"
+                        "src": "833:21:2"
                       }
                     ],
-                    "id": 485,
+                    "id": 643,
                     "name": "Return",
-                    "src": "857:28:1"
+                    "src": "826:28:2"
                   }
                 ],
-                "id": 486,
+                "id": 644,
                 "name": "Block",
-                "src": "850:41:1"
+                "src": "820:39:2"
               }
             ],
-            "id": 487,
+            "id": 645,
             "name": "FunctionDefinition",
-            "src": "779:112:1"
+            "src": "749:110:2"
           }
         ],
-        "id": 488,
+        "id": 646,
         "name": "ContractDefinition",
-        "src": "27:867:1"
+        "src": "25:836:2"
       }
     ],
-    "id": 489,
+    "id": 647,
     "name": "SourceUnit",
-    "src": "0:896:1"
+    "src": "0:862:2"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
   },
   "networks": {
-    "1514425510570": {
+    "1514449390101": {
       "events": {},
       "links": {},
-      "address": "0x9e25dbafcd920c9ac8b03299782883f97e854d72"
-    },
-    "1514428578964": {
-      "events": {},
-      "links": {},
-      "address": "0xe2876a8b9b4e9d4186b83f0cf22b989b01878937"
+      "address": "0x84153a9dd02f0b2425dece038f323e847c7647f1"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-28T02:37:06.457Z"
+  "updatedAt": "2017-12-28T11:03:32.563Z"
 }

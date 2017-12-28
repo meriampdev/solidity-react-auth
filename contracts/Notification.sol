@@ -1,30 +1,39 @@
 pragma solidity ^0.4.2;
 
 contract Notification {
+	struct Notifications{
+		address[] FriendRequests;
+		address[] Friends;
+		uint FriendRequestCount;
+	}
 	// User: array of requests
-	mapping(address => address[]) FriendRequests;
-	mapping(address => address[]) Friends;
+	/*mapping(address => address[]) FriendRequests;*/
+	/*mapping(address => address[]) Friends;*/
+	mapping(address => Notifications) notifs;
+
 
 	function SendFriendRequest(address to) public payable returns(bool) {
-		FriendRequests[to].push(msg.sender);
+		notifs[to].FriendRequests.push(msg.sender);
+		notifs[to].FriendRequestCount++;
 		return true;
 	}
 
 	function GetFriendRequests() public constant returns(address[]) {
-	    return FriendRequests[msg.sender];
+	    return notifs[msg.sender].FriendRequests;
 	}
 
 	function GetFriendRequestCount() public constant returns(uint) {
-		return FriendRequests[msg.sender].length;
+		return notifs[msg.sender].FriendRequestCount;
 	}
 
 	function AcceptFriendRequest(address from) public payable returns(bool) {
-		Friends[msg.sender].push(from);
-		for(uint i=0; i<=FriendRequests[msg.sender].length-1; i++) {
-			if(FriendRequests[msg.sender][i] == from) {
-				Friends[msg.sender].push(from);
-				Friends[from].push(msg.sender);
-				delete FriendRequests[msg.sender][i];
+		notifs[msg.sender].Friends.push(from);
+		for(uint i=0; i<=notifs[msg.sender].FriendRequests.length-1; i++) {
+			if(notifs[msg.sender].FriendRequests[i] == from) {
+				notifs[msg.sender].Friends.push(from);
+				notifs[from].Friends.push(msg.sender);
+				delete notifs[msg.sender].FriendRequests[i];
+				notifs[msg.sender].FriendRequestCount--;
 				return true;
 			}
 		}
@@ -33,43 +42,6 @@ contract Notification {
 	}
 
 	function GetFriends() public constant returns(address[]) {
-		return Friends[msg.sender];
+		return notifs[msg.sender].Friends;
 	}
-
-	/*struct Request {
-    address from;
-    bool accepted;
-  }
-  mapping(address => Request[]) FriendRequests;
-  struct Friends {
-    address[] friends;
-  }
-  mapping(address => Friends) friends;
-  address[] public requestsFrom;
-
-  function SendFriendRequest(address to) public payable returns(bool) {
-    FriendRequests[to].push(Request(msg.sender, false));
-		requestsFrom.push(msg.sender);
-    return true;
-  }
-
-  function GetFriendRequests() public returns(address[]) {
-    for(uint i=0; i<=requests.length;i++) {
-      if(!(FriendRequests[msg.sender][i].accepted)) {
-        requests.push(FriendRequests[msg.sender][i].from);
-      }
-    }
-    return requests;
-  }
-
-  function AcceptFriendRequest(address sender) public payable returns(bool) {
-    for(uint i=0; i<=FriendRequests[msg.sender].length;i++) {
-      if(FriendRequests[msg.sender][i].from == sender) {
-        FriendRequests[msg.sender][i].accepted = true;
-        return true;
-      }
-    }
-
-    return false;
-  }*/
 }

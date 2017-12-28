@@ -1,0 +1,2159 @@
+{
+  "contractName": "Business",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "GetLikeCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "GetClaimed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "IncrementBookmarkCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "DecrementLikeCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "IncrementLikeCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "DecrementBookmarkCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "GetBookmarkCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AddtoClaimed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "bizID",
+          "type": "bytes32"
+        }
+      ],
+      "name": "GetBusinessDetails",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6105698061001e6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461009e578063179b761f146100d957806351afc4ae146101435780635bd9ca5a146101775780636eca4441146101ab57806391686c65146101df578063916da61a14610213578063c5a5e5e31461024e578063f6e56f8c14610282575b600080fd5b34156100a957600080fd5b6100c36004808035600019169060200190919050506102c4565b6040518082815260200191505060405180910390f35b34156100e457600080fd5b6100ec6102eb565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561012f578082015181840152602081019050610114565b505050509050019250505060405180910390f35b61015d60048080356000191690602001909190505061034d565b604051808215151515815260200191505060405180910390f35b610191600480803560001916906020019091905050610385565b604051808215151515815260200191505060405180910390f35b6101c56004808035600019169060200190919050506103be565b604051808215151515815260200191505060405180910390f35b6101f96004808035600019169060200190919050506103f6565b604051808215151515815260200191505060405180910390f35b341561021e57600080fd5b61023860048080356000191690602001909190505061042f565b6040518082815260200191505060405180910390f35b610268600480803560001916906020019091905050610456565b604051808215151515815260200191505060405180910390f35b341561028d57600080fd5b6102a7600480803560001916906020019091905050610490565b604051808381526020018281526020019250505060405180910390f35b60008060008360001916600019168152602001908152602001600020600101549050919050565b6102f36104d8565b600180548060200260200160405190810160405280929190818152602001828054801561034357602002820191906000526020600020905b8154600019168152602001906001019080831161032b575b5050505050905090565b600080600083600019166000191681526020019081526020016000206002016000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600101600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206001016000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600201600081548092919060019003919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600201549050919050565b60006001805480600101828161046c91906104ec565b91600052602060002090016000849091909150906000191690555060019050919050565b60008060008084600019166000191681526020019081526020016000206001015460008085600019166000191681526020019081526020016000206002015491509150915091565b602060405190810160405280600081525090565b815481835581811511610513578183600052602060002091820191016105129190610518565b5b505050565b61053a91905b8082111561053657600081600090555060010161051e565b5090565b905600a165627a7a72305820633d53527655d1f4f7244783d672206a818e76253cb076bb335c6d25db02c4870029",
+  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063172cabdf1461009e578063179b761f146100d957806351afc4ae146101435780635bd9ca5a146101775780636eca4441146101ab57806391686c65146101df578063916da61a14610213578063c5a5e5e31461024e578063f6e56f8c14610282575b600080fd5b34156100a957600080fd5b6100c36004808035600019169060200190919050506102c4565b6040518082815260200191505060405180910390f35b34156100e457600080fd5b6100ec6102eb565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561012f578082015181840152602081019050610114565b505050509050019250505060405180910390f35b61015d60048080356000191690602001909190505061034d565b604051808215151515815260200191505060405180910390f35b610191600480803560001916906020019091905050610385565b604051808215151515815260200191505060405180910390f35b6101c56004808035600019169060200190919050506103be565b604051808215151515815260200191505060405180910390f35b6101f96004808035600019169060200190919050506103f6565b604051808215151515815260200191505060405180910390f35b341561021e57600080fd5b61023860048080356000191690602001909190505061042f565b6040518082815260200191505060405180910390f35b610268600480803560001916906020019091905050610456565b604051808215151515815260200191505060405180910390f35b341561028d57600080fd5b6102a7600480803560001916906020019091905050610490565b604051808381526020018281526020019250505060405180910390f35b60008060008360001916600019168152602001908152602001600020600101549050919050565b6102f36104d8565b600180548060200260200160405190810160405280929190818152602001828054801561034357602002820191906000526020600020905b8154600019168152602001906001019080831161032b575b5050505050905090565b600080600083600019166000191681526020019081526020016000206002016000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600101600081548092919060019003919050555060019050919050565b600080600083600019166000191681526020019081526020016000206001016000815480929190600101919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600201600081548092919060019003919050555060019050919050565b60008060008360001916600019168152602001908152602001600020600201549050919050565b60006001805480600101828161046c91906104ec565b91600052602060002090016000849091909150906000191690555060019050919050565b60008060008084600019166000191681526020019081526020016000206001015460008085600019166000191681526020019081526020016000206002015491509150915091565b602060405190810160405280600081525090565b815481835581811511610513578183600052602060002091820191016105129190610518565b5b505050565b61053a91905b8082111561053657600081600090555060010161051e565b5090565b905600a165627a7a72305820633d53527655d1f4f7244783d672206a818e76253cb076bb335c6d25db02c4870029",
+  "sourceMap": "25:1416:1:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:1416:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:118;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;356:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;1022:142:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;761:135;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;622;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1168:142;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1314:125;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;229:123;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;451:167;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:118;961:4;980:15;:22;996:5;980:22;;;;;;;;;;;;;;;;;:33;;;973:40;;900:118;;;:::o;356:92::-;402:9;;:::i;:::-;426:17;419:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;356:92;:::o;1022:142::-;1092:4;1104:15;:22;1120:5;1104:22;;;;;;;;;;;;;;;;;:36;;;:38;;;;;;;;;;;;;1155:4;1148:11;;1022:142;;;:::o;761:135::-;827:4;839:15;:22;855:5;839:22;;;;;;;;;;;;;;;;;:33;;;:35;;;;;;;;;;;;;;887:4;880:11;;761:135;;;:::o;622:::-;688:4;700:15;:22;716:5;700:22;;;;;;;;;;;;;;;;;:33;;;:35;;;;;;;;;;;;;748:4;741:11;;622:135;;;:::o;1168:142::-;1238:4;1250:15;:22;1266:5;1250:22;;;;;;;;;;;;;;;;;:36;;;:38;;;;;;;;;;;;;;1301:4;1294:11;;1168:142;;;:::o;1314:125::-;1379:4;1398:15;:22;1414:5;1398:22;;;;;;;;;;;;;;;;;:36;;;1391:43;;1314:125;;;:::o;229:123::-;289:4;301:17;:29;;;;;;;;;;;:::i;:::-;;;;;;;;;;324:5;301:29;;;;;;;;;;;;343:4;336:11;;229:123;;;:::o;451:167::-;518:4;524;542:15;:22;558:5;542:22;;;;;;;;;;;;;;;;;:33;;;577:15;:22;593:5;577:22;;;;;;;;;;;;;;;;;:36;;;534:80;;;;451:167;;;:::o;25:1416::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.2;\n\ncontract Business {\n  struct Details {\n    uint rating;\n    uint likescount;\n    uint bookmarkcount;\n    bool claimed;\n  }\n  mapping(bytes32 => Details) BusinessDetails;\n  bytes32[] claimedBusinesses;\n\n  function AddtoClaimed(bytes32 bizID) public payable returns(bool) {\n    claimedBusinesses.push(bizID);\n    return true;\n  }\n\n  function GetClaimed() public constant returns(bytes32[]) {\n    return claimedBusinesses;\n  }\n\n\tfunction GetBusinessDetails(bytes32 bizID) public constant returns(uint, uint) {\n\t\treturn (BusinessDetails[bizID].likescount, BusinessDetails[bizID].bookmarkcount);\n\t}\n\n  function IncrementLikeCount(bytes32 bizID) public payable returns(bool) {\n    BusinessDetails[bizID].likescount++;\n    return true;\n  }\n\n  function DecrementLikeCount(bytes32 bizID) public payable returns(bool) {\n    BusinessDetails[bizID].likescount--;\n    return true;\n  }\n\n  function GetLikeCount(bytes32 bizID) public constant returns(uint) {\n    return BusinessDetails[bizID].likescount;\n  }\n\n  function IncrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\n    BusinessDetails[bizID].bookmarkcount++;\n    return true;\n  }\n\n  function DecrementBookmarkCount(bytes32 bizID) public payable returns(bool) {\n    BusinessDetails[bizID].bookmarkcount--;\n    return true;\n  }\n\n  function GetBookmarkCount(bytes32 bizID) public constant returns(uint) {\n    return BusinessDetails[bizID].bookmarkcount;\n  }\n}\n",
+  "sourcePath": "/home/chael/Documents/ethereum/solidity-react-auth/contracts/Business.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/chael/Documents/ethereum/solidity-react-auth/contracts/Business.sol",
+      "exportedSymbols": {
+        "Business": [
+          551
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".2"
+          ]
+        },
+        "id": 399,
+        "name": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            551
+          ],
+          "name": "Business",
+          "scope": 552
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Business.Details",
+              "name": "Details",
+              "scope": 551,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "rating",
+                  "scope": 408,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 400,
+                    "name": "ElementaryTypeName",
+                    "src": "68:4:1"
+                  }
+                ],
+                "id": 401,
+                "name": "VariableDeclaration",
+                "src": "68:11:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "likescount",
+                  "scope": 408,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 402,
+                    "name": "ElementaryTypeName",
+                    "src": "85:4:1"
+                  }
+                ],
+                "id": 403,
+                "name": "VariableDeclaration",
+                "src": "85:15:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "bookmarkcount",
+                  "scope": 408,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 404,
+                    "name": "ElementaryTypeName",
+                    "src": "106:4:1"
+                  }
+                ],
+                "id": 405,
+                "name": "VariableDeclaration",
+                "src": "106:18:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "claimed",
+                  "scope": 408,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 406,
+                    "name": "ElementaryTypeName",
+                    "src": "130:4:1"
+                  }
+                ],
+                "id": 407,
+                "name": "VariableDeclaration",
+                "src": "130:12:1"
+              }
+            ],
+            "id": 408,
+            "name": "StructDefinition",
+            "src": "47:100:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "BusinessDetails",
+              "scope": 551,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => struct Business.Details storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => struct Business.Details storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 409,
+                    "name": "ElementaryTypeName",
+                    "src": "158:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Details",
+                      "referencedDeclaration": 408,
+                      "type": "struct Business.Details storage pointer"
+                    },
+                    "id": 410,
+                    "name": "UserDefinedTypeName",
+                    "src": "169:7:1"
+                  }
+                ],
+                "id": 411,
+                "name": "Mapping",
+                "src": "150:27:1"
+              }
+            ],
+            "id": 412,
+            "name": "VariableDeclaration",
+            "src": "150:43:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "claimedBusinesses",
+              "scope": 551,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes32[] storage ref",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "bytes32[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 413,
+                    "name": "ElementaryTypeName",
+                    "src": "197:7:1"
+                  }
+                ],
+                "id": 414,
+                "name": "ArrayTypeName",
+                "src": "197:9:1"
+              }
+            ],
+            "id": 415,
+            "name": "VariableDeclaration",
+            "src": "197:27:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "AddtoClaimed",
+              "payable": true,
+              "scope": 551,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 431,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 416,
+                        "name": "ElementaryTypeName",
+                        "src": "251:7:1"
+                      }
+                    ],
+                    "id": 417,
+                    "name": "VariableDeclaration",
+                    "src": "251:13:1"
+                  }
+                ],
+                "id": 418,
+                "name": "ParameterList",
+                "src": "250:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 431,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 419,
+                        "name": "ElementaryTypeName",
+                        "src": "289:4:1"
+                      }
+                    ],
+                    "id": 420,
+                    "name": "VariableDeclaration",
+                    "src": "289:4:1"
+                  }
+                ],
+                "id": 421,
+                "name": "ParameterList",
+                "src": "288:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (bytes32) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 415,
+                                  "type": "bytes32[] storage ref",
+                                  "value": "claimedBusinesses"
+                                },
+                                "id": 422,
+                                "name": "Identifier",
+                                "src": "301:17:1"
+                              }
+                            ],
+                            "id": 424,
+                            "name": "MemberAccess",
+                            "src": "301:22:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 417,
+                              "type": "bytes32",
+                              "value": "bizID"
+                            },
+                            "id": 425,
+                            "name": "Identifier",
+                            "src": "324:5:1"
+                          }
+                        ],
+                        "id": 426,
+                        "name": "FunctionCall",
+                        "src": "301:29:1"
+                      }
+                    ],
+                    "id": 427,
+                    "name": "ExpressionStatement",
+                    "src": "301:29:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 421
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 428,
+                        "name": "Literal",
+                        "src": "343:4:1"
+                      }
+                    ],
+                    "id": 429,
+                    "name": "Return",
+                    "src": "336:11:1"
+                  }
+                ],
+                "id": 430,
+                "name": "Block",
+                "src": "295:57:1"
+              }
+            ],
+            "id": 431,
+            "name": "FunctionDefinition",
+            "src": "229:123:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "GetClaimed",
+              "payable": false,
+              "scope": 551,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 432,
+                "name": "ParameterList",
+                "src": "375:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 440,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "bytes32[] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 433,
+                            "name": "ElementaryTypeName",
+                            "src": "402:7:1"
+                          }
+                        ],
+                        "id": 434,
+                        "name": "ArrayTypeName",
+                        "src": "402:9:1"
+                      }
+                    ],
+                    "id": 435,
+                    "name": "VariableDeclaration",
+                    "src": "402:9:1"
+                  }
+                ],
+                "id": 436,
+                "name": "ParameterList",
+                "src": "401:11:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 436
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 415,
+                          "type": "bytes32[] storage ref",
+                          "value": "claimedBusinesses"
+                        },
+                        "id": 437,
+                        "name": "Identifier",
+                        "src": "426:17:1"
+                      }
+                    ],
+                    "id": 438,
+                    "name": "Return",
+                    "src": "419:24:1"
+                  }
+                ],
+                "id": 439,
+                "name": "Block",
+                "src": "413:35:1"
+              }
+            ],
+            "id": 440,
+            "name": "FunctionDefinition",
+            "src": "356:92:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "GetBusinessDetails",
+              "payable": false,
+              "scope": 551,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 460,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 441,
+                        "name": "ElementaryTypeName",
+                        "src": "479:7:1"
+                      }
+                    ],
+                    "id": 442,
+                    "name": "VariableDeclaration",
+                    "src": "479:13:1"
+                  }
+                ],
+                "id": 443,
+                "name": "ParameterList",
+                "src": "478:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 460,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 444,
+                        "name": "ElementaryTypeName",
+                        "src": "518:4:1"
+                      }
+                    ],
+                    "id": 445,
+                    "name": "VariableDeclaration",
+                    "src": "518:4:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 460,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 446,
+                        "name": "ElementaryTypeName",
+                        "src": "524:4:1"
+                      }
+                    ],
+                    "id": 447,
+                    "name": "VariableDeclaration",
+                    "src": "524:4:1"
+                  }
+                ],
+                "id": 448,
+                "name": "ParameterList",
+                "src": "517:12:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 448
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "tuple(uint256,uint256)"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "likescount",
+                              "referencedDeclaration": 403,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 449,
+                                    "name": "Identifier",
+                                    "src": "542:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 442,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 450,
+                                    "name": "Identifier",
+                                    "src": "558:5:1"
+                                  }
+                                ],
+                                "id": 451,
+                                "name": "IndexAccess",
+                                "src": "542:22:1"
+                              }
+                            ],
+                            "id": 452,
+                            "name": "MemberAccess",
+                            "src": "542:33:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "bookmarkcount",
+                              "referencedDeclaration": 405,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 453,
+                                    "name": "Identifier",
+                                    "src": "577:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 442,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 454,
+                                    "name": "Identifier",
+                                    "src": "593:5:1"
+                                  }
+                                ],
+                                "id": 455,
+                                "name": "IndexAccess",
+                                "src": "577:22:1"
+                              }
+                            ],
+                            "id": 456,
+                            "name": "MemberAccess",
+                            "src": "577:36:1"
+                          }
+                        ],
+                        "id": 457,
+                        "name": "TupleExpression",
+                        "src": "541:73:1"
+                      }
+                    ],
+                    "id": 458,
+                    "name": "Return",
+                    "src": "534:80:1"
+                  }
+                ],
+                "id": 459,
+                "name": "Block",
+                "src": "530:88:1"
+              }
+            ],
+            "id": 460,
+            "name": "FunctionDefinition",
+            "src": "451:167:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "IncrementLikeCount",
+              "payable": true,
+              "scope": 551,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 476,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 461,
+                        "name": "ElementaryTypeName",
+                        "src": "650:7:1"
+                      }
+                    ],
+                    "id": 462,
+                    "name": "VariableDeclaration",
+                    "src": "650:13:1"
+                  }
+                ],
+                "id": 463,
+                "name": "ParameterList",
+                "src": "649:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 476,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 464,
+                        "name": "ElementaryTypeName",
+                        "src": "688:4:1"
+                      }
+                    ],
+                    "id": 465,
+                    "name": "VariableDeclaration",
+                    "src": "688:4:1"
+                  }
+                ],
+                "id": 466,
+                "name": "ParameterList",
+                "src": "687:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "++",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "likescount",
+                              "referencedDeclaration": 403,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 467,
+                                    "name": "Identifier",
+                                    "src": "700:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 462,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 468,
+                                    "name": "Identifier",
+                                    "src": "716:5:1"
+                                  }
+                                ],
+                                "id": 469,
+                                "name": "IndexAccess",
+                                "src": "700:22:1"
+                              }
+                            ],
+                            "id": 470,
+                            "name": "MemberAccess",
+                            "src": "700:33:1"
+                          }
+                        ],
+                        "id": 471,
+                        "name": "UnaryOperation",
+                        "src": "700:35:1"
+                      }
+                    ],
+                    "id": 472,
+                    "name": "ExpressionStatement",
+                    "src": "700:35:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 466
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 473,
+                        "name": "Literal",
+                        "src": "748:4:1"
+                      }
+                    ],
+                    "id": 474,
+                    "name": "Return",
+                    "src": "741:11:1"
+                  }
+                ],
+                "id": 475,
+                "name": "Block",
+                "src": "694:63:1"
+              }
+            ],
+            "id": 476,
+            "name": "FunctionDefinition",
+            "src": "622:135:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "DecrementLikeCount",
+              "payable": true,
+              "scope": 551,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 492,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 477,
+                        "name": "ElementaryTypeName",
+                        "src": "789:7:1"
+                      }
+                    ],
+                    "id": 478,
+                    "name": "VariableDeclaration",
+                    "src": "789:13:1"
+                  }
+                ],
+                "id": 479,
+                "name": "ParameterList",
+                "src": "788:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 492,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 480,
+                        "name": "ElementaryTypeName",
+                        "src": "827:4:1"
+                      }
+                    ],
+                    "id": 481,
+                    "name": "VariableDeclaration",
+                    "src": "827:4:1"
+                  }
+                ],
+                "id": 482,
+                "name": "ParameterList",
+                "src": "826:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "--",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "likescount",
+                              "referencedDeclaration": 403,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 483,
+                                    "name": "Identifier",
+                                    "src": "839:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 478,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 484,
+                                    "name": "Identifier",
+                                    "src": "855:5:1"
+                                  }
+                                ],
+                                "id": 485,
+                                "name": "IndexAccess",
+                                "src": "839:22:1"
+                              }
+                            ],
+                            "id": 486,
+                            "name": "MemberAccess",
+                            "src": "839:33:1"
+                          }
+                        ],
+                        "id": 487,
+                        "name": "UnaryOperation",
+                        "src": "839:35:1"
+                      }
+                    ],
+                    "id": 488,
+                    "name": "ExpressionStatement",
+                    "src": "839:35:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 482
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 489,
+                        "name": "Literal",
+                        "src": "887:4:1"
+                      }
+                    ],
+                    "id": 490,
+                    "name": "Return",
+                    "src": "880:11:1"
+                  }
+                ],
+                "id": 491,
+                "name": "Block",
+                "src": "833:63:1"
+              }
+            ],
+            "id": 492,
+            "name": "FunctionDefinition",
+            "src": "761:135:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "GetLikeCount",
+              "payable": false,
+              "scope": 551,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 505,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 493,
+                        "name": "ElementaryTypeName",
+                        "src": "922:7:1"
+                      }
+                    ],
+                    "id": 494,
+                    "name": "VariableDeclaration",
+                    "src": "922:13:1"
+                  }
+                ],
+                "id": 495,
+                "name": "ParameterList",
+                "src": "921:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 505,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 496,
+                        "name": "ElementaryTypeName",
+                        "src": "961:4:1"
+                      }
+                    ],
+                    "id": 497,
+                    "name": "VariableDeclaration",
+                    "src": "961:4:1"
+                  }
+                ],
+                "id": 498,
+                "name": "ParameterList",
+                "src": "960:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 498
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "likescount",
+                          "referencedDeclaration": 403,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Business.Details storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 412,
+                                  "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                  "value": "BusinessDetails"
+                                },
+                                "id": 499,
+                                "name": "Identifier",
+                                "src": "980:15:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 494,
+                                  "type": "bytes32",
+                                  "value": "bizID"
+                                },
+                                "id": 500,
+                                "name": "Identifier",
+                                "src": "996:5:1"
+                              }
+                            ],
+                            "id": 501,
+                            "name": "IndexAccess",
+                            "src": "980:22:1"
+                          }
+                        ],
+                        "id": 502,
+                        "name": "MemberAccess",
+                        "src": "980:33:1"
+                      }
+                    ],
+                    "id": 503,
+                    "name": "Return",
+                    "src": "973:40:1"
+                  }
+                ],
+                "id": 504,
+                "name": "Block",
+                "src": "967:51:1"
+              }
+            ],
+            "id": 505,
+            "name": "FunctionDefinition",
+            "src": "900:118:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "IncrementBookmarkCount",
+              "payable": true,
+              "scope": 551,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 521,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 506,
+                        "name": "ElementaryTypeName",
+                        "src": "1054:7:1"
+                      }
+                    ],
+                    "id": 507,
+                    "name": "VariableDeclaration",
+                    "src": "1054:13:1"
+                  }
+                ],
+                "id": 508,
+                "name": "ParameterList",
+                "src": "1053:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 521,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 509,
+                        "name": "ElementaryTypeName",
+                        "src": "1092:4:1"
+                      }
+                    ],
+                    "id": 510,
+                    "name": "VariableDeclaration",
+                    "src": "1092:4:1"
+                  }
+                ],
+                "id": 511,
+                "name": "ParameterList",
+                "src": "1091:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "++",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "bookmarkcount",
+                              "referencedDeclaration": 405,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 512,
+                                    "name": "Identifier",
+                                    "src": "1104:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 507,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 513,
+                                    "name": "Identifier",
+                                    "src": "1120:5:1"
+                                  }
+                                ],
+                                "id": 514,
+                                "name": "IndexAccess",
+                                "src": "1104:22:1"
+                              }
+                            ],
+                            "id": 515,
+                            "name": "MemberAccess",
+                            "src": "1104:36:1"
+                          }
+                        ],
+                        "id": 516,
+                        "name": "UnaryOperation",
+                        "src": "1104:38:1"
+                      }
+                    ],
+                    "id": 517,
+                    "name": "ExpressionStatement",
+                    "src": "1104:38:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 511
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 518,
+                        "name": "Literal",
+                        "src": "1155:4:1"
+                      }
+                    ],
+                    "id": 519,
+                    "name": "Return",
+                    "src": "1148:11:1"
+                  }
+                ],
+                "id": 520,
+                "name": "Block",
+                "src": "1098:66:1"
+              }
+            ],
+            "id": 521,
+            "name": "FunctionDefinition",
+            "src": "1022:142:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "DecrementBookmarkCount",
+              "payable": true,
+              "scope": 551,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 537,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 522,
+                        "name": "ElementaryTypeName",
+                        "src": "1200:7:1"
+                      }
+                    ],
+                    "id": 523,
+                    "name": "VariableDeclaration",
+                    "src": "1200:13:1"
+                  }
+                ],
+                "id": 524,
+                "name": "ParameterList",
+                "src": "1199:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 537,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 525,
+                        "name": "ElementaryTypeName",
+                        "src": "1238:4:1"
+                      }
+                    ],
+                    "id": 526,
+                    "name": "VariableDeclaration",
+                    "src": "1238:4:1"
+                  }
+                ],
+                "id": 527,
+                "name": "ParameterList",
+                "src": "1237:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "--",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "bookmarkcount",
+                              "referencedDeclaration": 405,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Business.Details storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 412,
+                                      "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                      "value": "BusinessDetails"
+                                    },
+                                    "id": 528,
+                                    "name": "Identifier",
+                                    "src": "1250:15:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 523,
+                                      "type": "bytes32",
+                                      "value": "bizID"
+                                    },
+                                    "id": 529,
+                                    "name": "Identifier",
+                                    "src": "1266:5:1"
+                                  }
+                                ],
+                                "id": 530,
+                                "name": "IndexAccess",
+                                "src": "1250:22:1"
+                              }
+                            ],
+                            "id": 531,
+                            "name": "MemberAccess",
+                            "src": "1250:36:1"
+                          }
+                        ],
+                        "id": 532,
+                        "name": "UnaryOperation",
+                        "src": "1250:38:1"
+                      }
+                    ],
+                    "id": 533,
+                    "name": "ExpressionStatement",
+                    "src": "1250:38:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 527
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 534,
+                        "name": "Literal",
+                        "src": "1301:4:1"
+                      }
+                    ],
+                    "id": 535,
+                    "name": "Return",
+                    "src": "1294:11:1"
+                  }
+                ],
+                "id": 536,
+                "name": "Block",
+                "src": "1244:66:1"
+              }
+            ],
+            "id": 537,
+            "name": "FunctionDefinition",
+            "src": "1168:142:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "GetBookmarkCount",
+              "payable": false,
+              "scope": 551,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "bizID",
+                      "scope": 550,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 538,
+                        "name": "ElementaryTypeName",
+                        "src": "1340:7:1"
+                      }
+                    ],
+                    "id": 539,
+                    "name": "VariableDeclaration",
+                    "src": "1340:13:1"
+                  }
+                ],
+                "id": 540,
+                "name": "ParameterList",
+                "src": "1339:15:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 550,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 541,
+                        "name": "ElementaryTypeName",
+                        "src": "1379:4:1"
+                      }
+                    ],
+                    "id": 542,
+                    "name": "VariableDeclaration",
+                    "src": "1379:4:1"
+                  }
+                ],
+                "id": 543,
+                "name": "ParameterList",
+                "src": "1378:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 543
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "bookmarkcount",
+                          "referencedDeclaration": 405,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Business.Details storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 412,
+                                  "type": "mapping(bytes32 => struct Business.Details storage ref)",
+                                  "value": "BusinessDetails"
+                                },
+                                "id": 544,
+                                "name": "Identifier",
+                                "src": "1398:15:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 539,
+                                  "type": "bytes32",
+                                  "value": "bizID"
+                                },
+                                "id": 545,
+                                "name": "Identifier",
+                                "src": "1414:5:1"
+                              }
+                            ],
+                            "id": 546,
+                            "name": "IndexAccess",
+                            "src": "1398:22:1"
+                          }
+                        ],
+                        "id": 547,
+                        "name": "MemberAccess",
+                        "src": "1398:36:1"
+                      }
+                    ],
+                    "id": 548,
+                    "name": "Return",
+                    "src": "1391:43:1"
+                  }
+                ],
+                "id": 549,
+                "name": "Block",
+                "src": "1385:54:1"
+              }
+            ],
+            "id": 550,
+            "name": "FunctionDefinition",
+            "src": "1314:125:1"
+          }
+        ],
+        "id": 551,
+        "name": "ContractDefinition",
+        "src": "25:1416:1"
+      }
+    ],
+    "id": 552,
+    "name": "SourceUnit",
+    "src": "0:1442:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-28T11:02:52.535Z"
+}

@@ -113,6 +113,7 @@ contract Authentication is Notification, Business {
   }
 
   function ClaimBusiness(bytes32 business_id) public payable returns(bool) {
+		AddtoClaimed(business_id);
     users[msg.sender].claims.push(business_id);
     return true;
   }

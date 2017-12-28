@@ -16,6 +16,7 @@ class Notifications extends React.Component {
     const { AuthContract } = global
 		AuthContract.AcceptFriendRequest(web3.toChecksumAddress(useraddr)).then(()=>{
 			self.props.GetFriendRequests()
+			self.props.GetFriends()
 		}).catch((err)=>{
 			console.log('AcceptFriendRequest Err:', err)
 		})

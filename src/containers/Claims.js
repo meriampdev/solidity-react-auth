@@ -7,15 +7,18 @@ import {
   CardText,
   Media,
   MediaOverlay,
+	Paper
 } from 'react-md'
+import { Bar } from 'react-chartjs-2';
 
 class Claims extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      bookmarks: []
+      claims: {},
     }
+		this.userscount = 0;
 
     this.GetClaims = this.GetClaims.bind(this)
   }
@@ -28,21 +31,75 @@ class Claims extends Component {
     const self = this
     const { global, web3 } = this.props
     const { AuthContract } = global
-    AuthContract.GetClaims().then((bookmarks)=>{
-      return bookmarks.map((business)=>{
-        let id = web3.toUtf8(business)
-        return id
-      })
-    }).then((list)=>{
-      self.setState({ bookmarks: list })
+    AuthContract.GetClaims().then((claims)=>{
+			return new Promise(function(resolve, reject) {
+				let list = {}, index = 0
+				claims.map((business)=>{
+					let id = web3.toUtf8(business)
+					AuthContract.GetBusinessDetails(id).then((details)=>{
+						const [ likescount, bookmarkcount ] = details
+						list[id] = { likescount: likescount.valueOf(), bookmarkcount: bookmarkcount.valueOf() }
+						if(index === claims.length-1) {
+							resolve(list)
+						}
+						index++;
+					})
+				})
+			}).then((list)=>{
+	      self.setState({ claims: list })
+	    })
     }).catch((err)=>{
       console.log('GetClaims Err: ', err)
     })
   }
 
+	GetPeople() {
+    const self = this
+    const { global, web3 } = this.props
+    const { AuthContract } = global
+    AuthContract.GetPeople().then((people)=>{
+      // length = no of users
+			self.userscount = people.length
+    }).catch((err)=>{
+      console.log('GetPeople Err', err)
+    })
+  }
+
   render() {
-    const { bookmarks } = this.state
-    let biz = businesses.filter(f=>bookmarks.includes(f.business_id))
+    const { claims } = this.state
+		const self = this
+    let biz = [], labels = [], likesData = [], interestedData = [], datasets = []
+		if(Object.keys(claims).length > 0) {
+			// biz = businesses.filter((f)=>{
+			// 	return claims[f.business_id] !== undefined
+			// })
+			businesses.map((business)=>{
+				if(claims[business.business_id]) {
+					labels.push(business.business_name)
+					let data = Object.assign({}, business, claims[business.business_id])
+					likesData.push(data.likescount)
+					interestedData.push(data.bookmarkcount)
+					biz.push(data)
+				}
+			})
+		}
+
+		const chartData = {
+			labels: labels,
+			datasets: [
+				{
+					label: 'Likes',
+					backgroundColor: 'blue',
+					data: likesData
+				},
+				{
+					label: 'Interested',
+					backgroundColor: 'green',
+					data: interestedData
+				}
+			]
+		}
+
     return(
       <main className="container">
         <div className="pure-g">
@@ -71,6 +128,28 @@ class Claims extends Component {
             })
           }
         </div>
+				<Paper className="cards__example md-cell md-cell--3">
+					<Bar data={chartData} width={100}
+						height={200}
+						options={{
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									ticks: {
+										min: 0, // it is for ignoring negative step.
+										beginAtZero: true,
+										callback: function(value, index, values) {
+											if (Math.floor(value) === value) {
+												return value;
+											}
+										}
+
+									}
+								}]
+							}
+						}}
+					/>
+				</Paper>
       </main>
     )
   }
